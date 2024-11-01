@@ -7,10 +7,10 @@ COPY . .
 RUN apt-get install maven -y
 RUN mvn clean install
 
-FROM openjdk:23-jdk
+FROM openjdk:17-jdk-slim
 
 EXPOSE 8080
 
-COPY --from=build /target/vitalsus-0.0.1-SNAPSHOT.jar vitalusus.jar
+COPY --from=build target/vitalusus-0.0.1-SNAPSHOT.jar vitalusus.jar
 
 ENTRYPOINT ["java", "-jar", "vitalusus.jar"]

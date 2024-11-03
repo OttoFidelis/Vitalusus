@@ -29,7 +29,7 @@ public class EquipamentoController {
         List<Equipamento> equipamentos = this.equipamentoService.findAll();
         return new ResponseEntity<List<Equipamento>>(equipamentos, HttpStatus.OK);
     }
-    @GetMapping("findAllByPatrocinador")
+    @PostMapping("findAllByPatrocinador")
     public ResponseEntity<List<Equipamento>> findAllByPatrocinador(@RequestBody Patrocinador patrocinador){
         List<Equipamento> equipamentos= this.equipamentoService.findAllByPatrocinador(patrocinador);
         return new ResponseEntity<List<Equipamento>>(equipamentos, HttpStatus.OK);

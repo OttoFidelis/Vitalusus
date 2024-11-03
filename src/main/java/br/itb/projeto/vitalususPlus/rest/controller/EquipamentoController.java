@@ -1,6 +1,7 @@
 package br.itb.projeto.vitalususPlus.rest.controller;
 
 import br.itb.projeto.vitalususPlus.model.entity.Equipamento;
+import br.itb.projeto.vitalususPlus.model.entity.Patrocinador;
 import br.itb.projeto.vitalususPlus.service.EquipamentoService;
 import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
@@ -28,9 +29,9 @@ public class EquipamentoController {
         List<Equipamento> equipamentos = this.equipamentoService.findAll();
         return new ResponseEntity<List<Equipamento>>(equipamentos, HttpStatus.OK);
     }
-    @GetMapping("findAllByPatrocinador/{patrocinadorId}")
-    public ResponseEntity<List<Equipamento>> findAllByPatrocinador(@PathVariable long patrocinadorId){
-        List<Equipamento> equipamentos= this.equipamentoService.findAllByPatrocinador(patrocinadorId);
+    @GetMapping("findAllByPatrocinador")
+    public ResponseEntity<List<Equipamento>> findAllByPatrocinador(@RequestBody Patrocinador patrocinador){
+        List<Equipamento> equipamentos= this.equipamentoService.findAllByPatrocinador(patrocinador);
         return new ResponseEntity<List<Equipamento>>(equipamentos, HttpStatus.OK);
     }
     @PostMapping("findById/")
@@ -48,14 +49,14 @@ public class EquipamentoController {
         Equipamento equipamentoSalvo = this.equipamentoService.save(equipamento, patrocinadorId);
         return new ResponseEntity<Equipamento>(equipamentoSalvo, HttpStatus.OK);
     }
-    @PutMapping("deletar/{id}")
+    @DeleteMapping("deletar")
     public ResponseEntity<Equipamento> deletarEquipamento(@PathVariable long id){
         Equipamento equipamentoSalvo = this.equipamentoService.deletar(id);
         return new ResponseEntity<Equipamento>(equipamentoSalvo, HttpStatus.OK);
     }
-    @PutMapping("update/{id}/{patrocinadorId}")
-    public ResponseEntity<Equipamento>updateEquipamento(@PathVariable long id,@PathVariable long patrocinadorId, @RequestBody Equipamento equipamento){
-        Equipamento equipamentoSalvo = this.equipamentoService.update(id, patrocinadorId, equipamento);
+    @PutMapping("update/{id}")
+    public ResponseEntity<Equipamento>updateEquipamento(@PathVariable long id, @RequestBody Equipamento equipamento){
+        Equipamento equipamentoSalvo = this.equipamentoService.update(id, equipamento);
         return new ResponseEntity<Equipamento>(equipamentoSalvo, HttpStatus.OK);
     }
     @ResponseStatus(HttpStatus.BAD_REQUEST)

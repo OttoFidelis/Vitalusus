@@ -46,9 +46,9 @@ public class PatrocinadorController {
         return new ResponseEntity<Patrocinador>(patrocinadorSalvo, HttpStatus.OK);
     }
     @DeleteMapping("deletar/{id}")
-    public ResponseEntity<Patrocinador> salvarPatrocinador(@PathVariable long id){
-        Patrocinador patrocinadorDeletado = this.patrocinadorService.deletar(id);
-        return new ResponseEntity<Patrocinador>(patrocinadorDeletado, HttpStatus.OK);
+    public ResponseEntity<?> salvarPatrocinador(@PathVariable long id){
+        this.patrocinadorService.deletar(id);
+        return new ResponseEntity<>(HttpStatus.OK);
     }
     @PutMapping("update/{id}")
     public ResponseEntity<Patrocinador> updateFoto(@PathVariable long id, @RequestBody Patrocinador patrocinador) {

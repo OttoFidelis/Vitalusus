@@ -44,15 +44,15 @@ public class EquipamentoController {
         Equipamento equipamento = this.equipamentoService.findById(id);
         return new ResponseEntity<Equipamento>(equipamento, HttpStatus.OK);
     }
-    @PostMapping("post/{patrocinadorId}")
-    public ResponseEntity<Equipamento> salvarEquipamento(@RequestBody @Valid Equipamento equipamento, @PathVariable long patrocinadorId){
-        Equipamento equipamentoSalvo = this.equipamentoService.save(equipamento, patrocinadorId);
+    @PostMapping("post")
+    public ResponseEntity<Equipamento> salvarEquipamento(@RequestBody @Valid Equipamento equipamento){
+        Equipamento equipamentoSalvo = this.equipamentoService.save(equipamento);
         return new ResponseEntity<Equipamento>(equipamentoSalvo, HttpStatus.OK);
     }
-    @DeleteMapping("deletar")
-    public ResponseEntity<Equipamento> deletarEquipamento(@PathVariable long id){
-        Equipamento equipamentoSalvo = this.equipamentoService.deletar(id);
-        return new ResponseEntity<Equipamento>(equipamentoSalvo, HttpStatus.OK);
+    @DeleteMapping("deletar/{id}")
+    public ResponseEntity<?> deletarEquipamento(@PathVariable long id){
+        this.equipamentoService.deletar(id);
+        return new ResponseEntity<>(HttpStatus.OK);
     }
     @PutMapping("update/{id}")
     public ResponseEntity<Equipamento>updateEquipamento(@PathVariable long id, @RequestBody Equipamento equipamento){

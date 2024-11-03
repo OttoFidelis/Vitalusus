@@ -30,7 +30,7 @@ public class EquipamentoService {
                 "Aluno não encontrado"
         ));
     }
-    public Equipamento save(Equipamento equipamento, long id){
+    public Equipamento save(Equipamento equipamento){
         equipamento.setId(null);
         equipamento.setStatusEquipamento("ATIVO");
 			return equipamentoRepository.save(equipamento);

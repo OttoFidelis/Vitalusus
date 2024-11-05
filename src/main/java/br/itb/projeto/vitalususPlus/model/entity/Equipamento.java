@@ -23,7 +23,8 @@ public class Equipamento {
     @Column(nullable = false)
     private String nome;
 
-    @Column(nullable = false, unique = true, length = 9999999)
+    @Lob
+    @Column(nullable = false, unique = true)
     private String link;
 
     @Column(name="status_equipamento",nullable = false)

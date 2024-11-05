@@ -22,7 +22,7 @@ public class Treinador{
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
-	@Column(name="cref", nullable = false)
+	@Column(name="cref", nullable = false, unique = true)
 	@NotBlank(message = "campo não preenchido")
 	@CREF(message ="campo inválido")
 	private String cref;

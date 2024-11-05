@@ -28,7 +28,7 @@ public class Usuario {
 
 	@Email(message ="campo inválido")
 	@NotBlank(message = "campo não preenchido")
-	@Column(name="email", nullable = false)
+	@Column(name="email", nullable = false, unique = true)
 	private String email;
 
 	@NotBlank(message = "campo não preenchido")

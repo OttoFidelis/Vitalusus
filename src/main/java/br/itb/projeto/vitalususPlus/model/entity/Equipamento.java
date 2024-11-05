@@ -23,7 +23,6 @@ public class Equipamento {
     @Column(nullable = false)
     private String nome;
 
-    @Lob
     @Column(nullable = false, unique = true)
     private String link;
 

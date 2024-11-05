@@ -45,7 +45,7 @@ public class Canal{
 	@OneToMany(mappedBy = "canal", cascade=CascadeType.ALL, fetch = FetchType.LAZY)
 	private List<Videoaula> videoaulas;
 
-	@Column(length = 2000)
+	@Lob
 	private String bio;
 
 	@Column(name="numero_videos",nullable = false)

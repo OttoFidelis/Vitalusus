@@ -21,8 +21,7 @@ public class Videoaula {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	@Column(nullable = false)
-	@Lob
+	@Column(nullable = false, length = 2000)
 	private String descricao;
 	@NotBlank(message = "campo não preenchido")
 	@Column(nullable = false)

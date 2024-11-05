@@ -18,8 +18,7 @@ public class Patrocinador {
     @Column(nullable = false)
     private String nome;
 
-    @Lob
-    @Column(nullable = false, unique = true)
+    @Column(nullable = false, unique = true, length = 2000)
     private String link;
 
     @Column(name="status_patrocinador",nullable = false)

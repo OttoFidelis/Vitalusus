@@ -1,6 +1,7 @@
 package br.itb.projeto.vitalususPlus.model.entity;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Max;
 import lombok.*;
 
 @Entity
@@ -22,7 +23,7 @@ public class Equipamento {
     @Column(nullable = false)
     private String nome;
 
-    @Column(nullable = false, unique = true)
+    @Column(nullable = false, unique = true, length = 9999999)
     private String link;
 
     @Column(name="status_equipamento",nullable = false)

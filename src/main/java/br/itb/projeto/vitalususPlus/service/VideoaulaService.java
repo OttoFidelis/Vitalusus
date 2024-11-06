@@ -228,6 +228,9 @@ public class VideoaulaService {
         if (videoaulaOptional.isPresent()){
             Videoaula _videoaula = videoaulaOptional.get();
             Aluno aluno = alunoService.findById(alunoId);
+		if(_videoaula.getAlunosDeslikes().contains(aluno)){
+			removeDeslikes(_videoaula.getId(), aluno.getId())
+		}
             if (!_videoaula.getAlunosLikes().contains(aluno)) {
                 _videoaula.getAlunosLikes().add(aluno);
                 _videoaula = updateFix(_videoaula.getId());
@@ -256,6 +259,9 @@ public class VideoaulaService {
         if(videoaulaOptional.isPresent()) {
             Videoaula _videoaula = videoaulaOptional.get();
             Aluno aluno = alunoService.findById(alunoId);
+		if(_videoaula.getAlunosLikes().contains(aluno)){
+			removeLikes(_videoaula.getId(), aluno.getId())
+		}
             if (!_videoaula.getAlunosDeslikes().contains(aluno)) {
                 _videoaula.getAlunosDeslikes().add(aluno);
                 _videoaula = updateFix(_videoaula.getId());

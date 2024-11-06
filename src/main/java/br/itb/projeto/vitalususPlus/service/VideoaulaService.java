@@ -146,7 +146,7 @@ public class VideoaulaService {
         }
         return null;
     }
-    public Videoaula updateGeral(long id, Videoaula videoaula, long equipamentoId){
+    public Videoaula updateGeral(long id, Videoaula videoaula){
         Optional<Videoaula> videoaulaOptional = videoaulaRepository.findById(id);
         if(videoaulaOptional.isPresent()) {
             Videoaula _videoaula = videoaulaOptional.get();
@@ -155,8 +155,7 @@ public class VideoaulaService {
             _videoaula.setThumbnail(videoaula.getThumbnail());
             _videoaula.setCategoria(videoaula.getCategoria());
             _videoaula.setTags(videoaula.getTags());
-            Equipamento equipamento = equipamentoService.findById(equipamentoId);
-            _videoaula.setEquipamento(equipamento);
+            _videoaula.setEquipamento(videoaula.getEquipamento());
             _videoaula = updateFix(_videoaula.getId());
             return videoaulaRepository.save(_videoaula);
         }

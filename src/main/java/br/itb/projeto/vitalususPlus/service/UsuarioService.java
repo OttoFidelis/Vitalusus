@@ -98,7 +98,7 @@ public class UsuarioService {
 			message.setFrom("vitalususplusoficial@gmail.com");
 			message.setTo(email);
 			message.setSubject("Recuperação de Senha");
-			message.setText("Clique no link para redefinir sua senha http://localhost:5173/TrocarSenha.html?id="+usuario.getId());
+			message.setText("Clique no link para redefinir sua senha https://vitalususfrontend-1.onrender.com/TrocarSenha.html?id="+usuario.getId());
 
 			mailSender.send(message);
 		}

@@ -1,1 +1,0 @@
-ALTER TABLE Videoaula ALTER COLUMN descricao TYPE TEXT;

@@ -1,1 +1,0 @@
-ALTER TABLE Equipamento ALTER COLUMN link TYPE TEXT;

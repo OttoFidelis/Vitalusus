@@ -1,0 +1,1 @@
+ALTER TABLE Patrocinador ALTER COLUMN link TYPE TEXT;

@@ -162,13 +162,11 @@ public class CanalService {
 		return null;
 	}
 	@Transactional
-	public Canal addVideoaula(long id, Videoaula videoaula, long equipamentoId){
+	public Canal addVideoaula(long id, Videoaula videoaula){
 		Optional<Canal> canalOptional = canalRepository.findById(id);
 		if (canalOptional.isPresent()){
 			Canal _canal = canalOptional.get();
 			videoaula.setCanal(_canal);
-			Equipamento equipamento =  equipamentoService.findById(equipamentoId);
-			videoaula.setEquipamento(equipamento);
 			Videoaula _videoaula = videoaulaService.save(videoaula);
 			_canal.getVideoaulas().add(_videoaula);
 			_canal = updateFix(_canal.getId());
